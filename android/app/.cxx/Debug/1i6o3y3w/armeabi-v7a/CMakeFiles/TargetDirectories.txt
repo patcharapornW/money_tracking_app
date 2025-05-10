@@ -1,0 +1,2 @@
+D:/Devs/Works/fon/money/money_tracking_app/android/app/.cxx/Debug/1i6o3y3w/armeabi-v7a/CMakeFiles/edit_cache.dir
+D:/Devs/Works/fon/money/money_tracking_app/android/app/.cxx/Debug/1i6o3y3w/armeabi-v7a/CMakeFiles/rebuild_cache.dir

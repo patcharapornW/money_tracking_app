@@ -6,19 +6,20 @@ class Money {
   int? moneyType;
   int? userId;
 
-  Money(
-      {this.moneyId,
-      this.moneyDetail,
-      this.moneyDate,
-      this.moneyInOut,
-      this.moneyType,
-      this.userId});
+  Money({
+    this.moneyId,
+    this.moneyDetail,
+    this.moneyDate,
+    this.moneyInOut,
+    this.moneyType,
+    this.userId,
+  });
 
   Money.fromJson(Map<String, dynamic> json) {
     moneyId = json['moneyId'];
     moneyDetail = json['moneyDetail'];
     moneyDate = json['moneyDate'];
-    moneyInOut = json['moneyInOut'];
+    moneyInOut = (json['moneyInOut'] as num?)?.toDouble();
     moneyType = json['moneyType'];
     userId = json['userId'];
   }

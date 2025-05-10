@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:money_tracking_app/constants/color_constants.dart';
+import 'package:money_tracking_app/views/login_ui.dart';
+import 'package:money_tracking_app/views/register_ui.dart';
+import 'package:money_tracking_app/widgets/custom_button.dart';
 
 class WelcomeUI extends StatefulWidget {
   const WelcomeUI({super.key});
@@ -12,41 +14,61 @@ class _WelcomeUIState extends State<WelcomeUI> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(mainColor),
-      body: Column(
+      body: Stack(
         children: [
-          Padding(
-            padding: const EdgeInsets.only(top: 100),
-            child: Text(
-              'Money Tracking',
-              style: TextStyle(
-                color: Colors.white,
-                fontWeight: FontWeight.bold,
-                fontSize: 40,
+          Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 25.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.asset('assets/images/man.png', width: 400),
+                  SizedBox(height: 20),
+                  Text(
+                    'บันทึก\nรายรับรายจ่าย',
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 20),
+                  Column(
+                    children: [
+                      CustomButton(
+                        text: "เริ่มใช้งานแอปพลิเคชัน",
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => LoginUI(),
+                            ),
+                          );
+                        },
+                        color: Colors.white,
+                      ),
+                      SizedBox(height: 15),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text('ยังไม่ได้ลงทะเบียน? '),
+                          InkWell(
+                            onTap: () => Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => RegisterUI(),
+                              ),
+                            ),
+                            child: Text(
+                              'ลงทะเบียน ',
+                              style: TextStyle(color: Colors.blueAccent),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
             ),
           ),
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            'รายรับรายจ่ายของฉัน',
-            style: TextStyle(
-              color: Colors.white,
-              fontWeight: FontWeight.bold,
-              fontSize: 20,
-            ),
-          ),
-          SizedBox(
-            height: MediaQuery.of(context).size.height * 0.4,
-          ),
-          Text(
-            'Create by 6652410027 \n\ DTI-SAU,',
-            style: TextStyle(
-              fontSize: 15,
-              color: Colors.white,
-            ),
-          )
         ],
       ),
     );
